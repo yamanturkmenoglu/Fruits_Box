@@ -16,7 +16,10 @@ class FruitsBox extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoutes,
       initialRoute: SplashView.routeName,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: ThemeData(
+        fontFamily: "Roboto",
+        scaffoldBackgroundColor: Colors.white,
+      ),
     );
   }
 }
