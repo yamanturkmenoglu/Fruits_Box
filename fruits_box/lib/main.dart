@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_box/core/services/shared_preferences_singleton.dart';
 
 import 'core/helper_functions/on_generate_routes.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesSingleton.init();
   runApp(const FruitsBox());
 }
 

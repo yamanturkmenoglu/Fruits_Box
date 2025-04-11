@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_box/constants.dart';
+import 'package:fruits_box/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_box/core/utils/app_text_style.dart';
+import 'package:fruits_box/features/auth/presentation/views/login_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -46,6 +49,15 @@ class PageViewItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       InkWell(
+                        onTap: () {
+                          SharedPreferencesSingleton.setBool(
+                            KIsOnboardingSeen,
+                            true,
+                          );
+                          Navigator.of(
+                            context,
+                          ).popAndPushNamed(LoginView.routeName);
+                        },
                         child: Text(
                           "Geç",
                           style: TextStyles.regular13.copyWith(

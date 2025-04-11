@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:fruits_box/constants.dart';
 import 'package:fruits_box/core/utils/app_colors.dart';
 import 'package:fruits_box/core/widget/custom_button.dart';
+import 'package:fruits_box/features/auth/presentation/views/login_view.dart';
 import 'package:fruits_box/features/on_boarding/presentation/views/widget/on_boarding_view_page.dart';
+
+import '../../../../../core/services/shared_preferences_singleton.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
@@ -56,7 +59,13 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           visible: currentPage == 1 ? true : false,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: KHorezentalPadding),
-            child: CustomButton(onPressed: () {}, title: "Şimdi başla"),
+            child: CustomButton(
+              onPressed: () {
+                SharedPreferencesSingleton.setBool(KIsOnboardingSeen, true);
+                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+              },
+              title: "Şimdi başla",
+            ),
           ),
         ),
         SizedBox(height: 50),
