@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_box/core/services/shared_preferences_singleton.dart';
+import 'package:fruits_box/core/utils/app_colors.dart';
 
 import 'core/helper_functions/on_generate_routes.dart';
 import 'features/splash/presentation/views/splash_view.dart';
@@ -20,6 +21,7 @@ class FruitsBox extends StatelessWidget {
       onGenerateRoute: onGenerateRoutes,
       initialRoute: SplashView.routeName,
       theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         fontFamily: "Roboto",
         scaffoldBackgroundColor: Colors.white,
       ),
